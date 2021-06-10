@@ -63,7 +63,12 @@ console.log('numero tentativi', userAttempts);
 var listNumUser = [];
 
 while (listNumUser.length < userAttempts) {
-    var numUser = parseInt(prompt('inserisci un numero tra 1 e 100')) // !!! tra 1 e 100 toDo
+    var numUser = parseInt(prompt('inserisci un numero tra 1 e ' + maxBoxes));
+    
+    while (isNaN(numUser) || numUser < 1 || numUser > maxBoxes) {
+        alert(('Attenzione! devi inserire un numero da 1 a ' ) + maxBoxes),
+        numUser = parseInt(prompt('Inserisci un numero da 1 a ' + maxBoxes));
+    }
 
     if (isInArray(listNumPC, numUser)) {
         break;
