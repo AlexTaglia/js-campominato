@@ -42,7 +42,7 @@ var numBombs = 16;
 var level = prompt('inserisci un livello di difficoltà 0 (Facile), 1 (Medio) o 2 (Difficile) 3 (Veterano)');
 
 while (isNaN(level) || level < 0 || level > 3){
-    alert('Attenzione! devi sciegliere il livello da 1 a 3');
+    alert('Attenzione! devi sciegliere il livello da 0 a 3');
     level = prompt('inserisci un livello di difficoltà 0 (Facile), 1 (Medio) o 2 (Difficile) 3 (Veterano)');
 }
 
