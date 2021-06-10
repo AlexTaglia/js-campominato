@@ -55,7 +55,7 @@ console.log('lista PC', listNumPC);
 // chiedo all'utente per (maxBoxes - numBombs) di inserire un numero alla volta tra 1 e maxBoxes
 // !!!l'utente non puo inserire un numero giainserto, 
 //  se numUtente isInArray listNumPC partita termina else pusho il num in numUtente e cosi via
-//  stmpo il risultato numUtente.lenght a ogni ciclo
+//  stmpo il risultato numUtente.lenght 
 
 var userAttempts = maxBoxes - numBombs;
 console.log('numero tentativi', userAttempts);
@@ -66,12 +66,12 @@ while (listNumUser.length < userAttempts) {
     var numUser = parseInt(prompt('inserisci un numero tra 1 e 100')) // !!! tra 1 e 100 toDo
 
     if (isInArray(listNumPC, numUser)) {
-        alert('partita finita, il tuo punteggio è ' + listNumUser.length)
         break;
 
     } else if (!isInArray(listNumUser, numUser)) {
         listNumUser.push(numUser);
         console.log('lista Utente ' + listNumUser);
     }
-
 }
+
+alert('Partita finita, il tuo punteggio è ' + listNumUser.length)
