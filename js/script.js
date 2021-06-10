@@ -38,7 +38,32 @@ function isInArray(array, element) {
 
 var listNumPC = [];
 var numBombs = 16;
-var maxBoxes = 100;
+
+var level = prompt('inserisci un livello di difficoltà 0 (Facile), 1 (Medio) o 2 (Difficile) 3 (Veterano)');
+
+while (isNaN(level) || level < 0 || level > 3){
+    alert('Attenzione! devi sciegliere il livello da 1 a 3');
+    level = prompt('inserisci un livello di difficoltà 0 (Facile), 1 (Medio) o 2 (Difficile) 3 (Veterano)');
+}
+
+switch (level) {
+
+    case "0":
+        var maxBoxes = 100;
+        break; 
+    
+    case "1":
+        var maxBoxes = 80;
+        break;
+    
+    case "2":
+        var maxBoxes = 50;
+        break;
+           
+    case "3":
+        var maxBoxes = numBombs * 2;
+        break;
+}
 
 while (listNumPC.length < numBombs) {
     var randomNum = getRandomNumber(1, maxBoxes)
