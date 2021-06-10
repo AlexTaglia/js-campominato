@@ -37,8 +37,8 @@ function isInArray(array, element) {
 }
 
 var listNumPC = [];
-var numBombs = 5;
-var maxBoxes = 10;
+var numBombs = 16;
+var maxBoxes = 100;
 
 while (listNumPC.length < numBombs) {
     var randomNum = getRandomNumber(1, maxBoxes)
@@ -53,7 +53,7 @@ console.log('lista PC', listNumPC);
 
 // --------------------------------------------------------------------------
 // chiedo all'utente per (maxBoxes - numBombs) di inserire un numero alla volta tra 1 e maxBoxes
-// !!!l'utente non puo inserire un numero giainserto, 
+// !!!l'utente non puo inserire un numero gia inserto, 
 //  se numUtente isInArray listNumPC partita termina else pusho il num in numUtente e cosi via
 //  stmpo il risultato numUtente.lenght 
 
@@ -64,14 +64,17 @@ var listNumUser = [];
 
 while (listNumUser.length < userAttempts) {
     var numUser = parseInt(prompt('inserisci un numero tra 1 e ' + maxBoxes));
-    
+
     while (isNaN(numUser) || numUser < 1 || numUser > maxBoxes) {
-        alert(('Attenzione! devi inserire un numero da 1 a ' ) + maxBoxes),
+        alert(('Attenzione! devi inserire un numero da 1 a ') + maxBoxes);
         numUser = parseInt(prompt('Inserisci un numero da 1 a ' + maxBoxes));
     }
 
     if (isInArray(listNumPC, numUser)) {
         break;
+
+    } else if (isInArray(listNumUser, numUser)) {
+        alert('hai già inserito il numero '), numUser;
 
     } else if (!isInArray(listNumUser, numUser)) {
         listNumUser.push(numUser);
@@ -79,4 +82,8 @@ while (listNumUser.length < userAttempts) {
     }
 }
 
-alert('Partita finita, il tuo punteggio è ' + listNumUser.length)
+if (listNumUser.length === userAttempts){
+    alert('Sei stato molto fortunato! il tuo punteggio è ' + listNumUser.length)
+} else {
+    alert('Partita finita, il tuo punteggio è ' + listNumUser.length)
+}
